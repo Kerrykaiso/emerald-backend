@@ -5,12 +5,20 @@ const db = require("./models");
 const { errorHandler, notfound } = require('./middlewares/errorhandler');
 const authRouter = require("./routes/authRoute")
 const orderRouter = require("./routes/orderRoute")
-//const cors = require("cors")
+const cors = require("cors")
 
 const PORT = process.env.PORT || 5000;
 
 
 
+
+
+
+const corsOption = {origin:["https://emeraldexpress.vercel.app/","https://emeraldexpress.org"],
+    allowedHeaders: ["Content-Type", "Authorization"],
+     methods: ["GET","POST","PUT","DELETE","OPTIONS"]
+};
+app.use(cors(corsOption))
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));

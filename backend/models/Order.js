@@ -124,7 +124,36 @@ module.exports = (sequelize, DataTypes) => {
             type:DataTypes.INTEGER,
             allowNull:false,
             defaultValue:0
-    }
+    },
+    destination:{
+      type:DataTypes.STRING,
+      allowNull:true
+    },
+    pickUpDate:{
+      type:DataTypes.STRING,
+
+    },
+    pickupTime:{
+     type: DataTypes.STRING,
+     allowNull:true
+    },
+    totalFreight:{
+      type: DataTypes.INTEGER,
+      allowNull: true
+    },
+   carrier:{
+      type: DataTypes.INTEGER,
+      allowNull: true 
+   },
+   comment:{
+     type: DataTypes.INTEGER,
+      allowNull: true  
+   },
+   expectedDeliveryDate:{
+      type: DataTypes.STRING,
+      allowNull: true  
+   }
+
 });
   
     return Order
