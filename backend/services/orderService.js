@@ -50,7 +50,7 @@ const createOrderService = async (orderData,next) => {
   const getAllOrdersService = async (next) => {   
      
     try {
-      const orders = await Order.findAll()
+      const orders = await Order.findAll({order: [["createdAt", "DESC"]]})
       if (!orders) {
         const err = new AppError("No orders found", "failed", 400)
         throw err
