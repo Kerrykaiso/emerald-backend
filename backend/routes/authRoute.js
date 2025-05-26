@@ -3,7 +3,7 @@ const { registerController, loginController,deleteAlladminController } = require
 
 
 authRouter.get("/health", (req,res)=>{
-    res.status(200).json("Server is up and running!!!!")
+    res.status(200).json("Server is up and running")
 })
 authRouter.post("/register", registerController)
 authRouter.post("/login", loginController)
