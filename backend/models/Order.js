@@ -146,13 +146,17 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: true 
    },
    comment:{
-     type: DataTypes.INTEGER,
+     type: DataTypes.STRING,
       allowNull: true  
    },
    expectedDeliveryDate:{
       type: DataTypes.STRING,
       allowNull: true  
-   }
+   },
+   currentLocation:{
+      type: DataTypes.STRING,
+      allowNull: true  
+   },
 
 });
   
