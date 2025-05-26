@@ -14,7 +14,7 @@ const PORT = process.env.PORT || 5000;
 
 
 
-const corsOption = {origin:["https://emeraldexpress.vercel.app/","https://emeraldexpress.org","http://localhost:5173/"],
+const corsOption = {origin:["https://emeraldexpress.vercel.app/","https://emeraldexpress.org","http://localhost:5173/","http://127.0.0.1:5500/"],
     allowedHeaders: ["Content-Type", "Authorization"],
      methods: ["GET","POST","PUT","DELETE","OPTIONS"]
 };
