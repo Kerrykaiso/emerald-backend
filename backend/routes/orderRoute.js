@@ -15,6 +15,6 @@ orderRoute.get("/getOrder/:orderId",adminAuth, getOrderByIdController )
 orderRoute.post("/createOrder", adminAuth,createOrderController )
 orderRoute.get("/getAllOrders",adminAuth, getAllOrdersController )
 orderRoute.delete("/deleteOrder/:orderId", adminAuth,deleteOrderController )
-orderRoute.get("/getOrderByTrackingId/:trackingId", adminAuth,getOrderByTrackingIdController )
+orderRoute.get("/getOrderByTrackingId/:trackingId", getOrderByTrackingIdController )
 
 module.exports = orderRoute
