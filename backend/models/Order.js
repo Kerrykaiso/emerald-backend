@@ -142,7 +142,7 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: true
     },
    carrier:{
-      type: DataTypes.INTEGER,
+      type: DataTypes.STRING,
       allowNull: true 
    },
    comment:{
