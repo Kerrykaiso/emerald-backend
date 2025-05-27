@@ -157,7 +157,10 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       allowNull: true  
    },
-
+   origin:{
+       type: DataTypes.STRING,
+      allowNull: true  
+   }
 });
   
     return Order
