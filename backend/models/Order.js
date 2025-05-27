@@ -160,6 +160,14 @@ module.exports = (sequelize, DataTypes) => {
    origin:{
        type: DataTypes.STRING,
       allowNull: true  
+   },
+   product:{
+      type: DataTypes.STRING,
+      allowNull: true  
+   },
+   packages:{
+      type: DataTypes.STRING,
+      allowNull: true  
    }
 });
   
