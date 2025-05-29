@@ -112,7 +112,7 @@ module.exports = (sequelize, DataTypes) => {
     updatedBy:{
           type:DataTypes.STRING,
           allowNull:false,
-          defaultValue:"emeraldexpress.org"
+          defaultValue:"Emerald Express"
     
     },
     mode:{
