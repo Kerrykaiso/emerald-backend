@@ -130,6 +130,33 @@ const createOrderService = async (orderData,next) => {
      }
   }
 
+  const updateByTrackingIdService = async ( orderData,next) => {   
+     
+    try {
+      const { trackingId } = orderData
+      if (!trackingId) {
+        const err = new AppError("Tracking ID is required", "failed", 400)
+        throw err
+      }
+      const order = await Order.findOne({ where: { trackingId } })
+      if (!order) {
+        const err = new AppError("Order not found", "failed", 400)
+        throw err
+      }
+      const updatedOrder = await Order.create(orderData)
+      if (!updatedOrder) {
+        const err = new AppError("Order not updated", "failed", 400)
+        throw err
+      }
+      return {
+        status: "success",
+        message: "Order updated successfully",
+        data: updatedOrder
+      }
+    } catch (error) {
+      next(error)
+    }
+  }
 
   module.exports = {
     updateOrderService,
@@ -137,6 +164,7 @@ const createOrderService = async (orderData,next) => {
     getOrderByIdService,
     getAllOrdersService,
     generateTrackingId,
+    updateByTrackingIdService,
     deleteOrderService,
     getOrderByTrackingIdService
   }

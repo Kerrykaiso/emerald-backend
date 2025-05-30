@@ -4,7 +4,8 @@ const { createOrderService,
     updateOrderService,
     getAllOrdersService,
     deleteOrderService,
-     getOrderByTrackingIdService } = require('../services/orderService');
+     getOrderByTrackingIdService, 
+     updateByTrackingIdService} = require('../services/orderService');
 
 const createOrderController = async (req, res,next) => {
 
@@ -115,10 +116,28 @@ const deleteOrderController = async (req, res,next) => {
     }
 }
 
-
+const updateByTrackingIdController = async (req, res,next) => {
+    const orderData = req.body;
+    try {
+        if ( !orderData) {
+            const error = new AppError('Please provide all required fields', 'fail', 400);
+            return next(error);
+        }
+        const data = await updateByTrackingIdService( orderData, next);
+        if (!data) {
+            const err = new AppError("Order not found", "failed", 400);
+            return next(err);
+        }
+        res.status(200).json(data);
+    } catch (error) {
+        next(error);
+    }
+}
 
 
 module.exports = { createOrderController ,
+    updateByTrackingIdController
+    ,
     updateOrderController
     ,getOrderByIdController,
     getAllOrdersController,
