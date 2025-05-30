@@ -138,11 +138,7 @@ const createOrderService = async (orderData,next) => {
         const err = new AppError("Tracking ID is required", "failed", 400)
         throw err
       }
-      const order = await Order.findOne({ where: { trackingId } })
-      if (!order) {
-        const err = new AppError("Order not found", "failed", 400)
-        throw err
-      }
+  
       const updatedOrder = await Order.create(orderData)
       if (!updatedOrder) {
         const err = new AppError("Order not updated", "failed", 400)
