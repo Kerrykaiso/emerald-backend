@@ -130,16 +130,19 @@ const createOrderService = async (orderData,next) => {
      }
   }
 
-  const updateByTrackingIdService = async ( orderData,next) => {   
+  const updateByTrackingIdService = async ( orderData,trackingId,next) => {   
      
     try {
-      const { trackingId } = orderData
       if (!trackingId) {
         const err = new AppError("Tracking ID is required", "failed", 400)
         throw err
       }
+
   
-      const updatedOrder = await Order.create(orderData)
+      const updatedOrder = await Order.create({
+        ...orderData,
+        trackingId
+      })
       if (!updatedOrder) {
         const err = new AppError("Order not updated", "failed", 400)
         throw err

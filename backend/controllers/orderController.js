@@ -118,12 +118,17 @@ const deleteOrderController = async (req, res,next) => {
 
 const updateByTrackingIdController = async (req, res,next) => {
     const orderData = req.body;
+    const { trackingId } = req.params;
+    if (!trackingId) {
+        const error = new AppError('Please provide all required fields', 'fail', 400);
+        return next(error);
+    }
     try {
         if ( !orderData) {
             const error = new AppError('Please provide all required fields', 'fail', 400);
             return next(error);
         }
-        const data = await updateByTrackingIdService( orderData, next);
+        const data = await updateByTrackingIdService( orderData, trackingId, next);
         if (!data) {
             const err = new AppError("Order not found", "failed", 400);
             return next(err);
