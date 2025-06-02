@@ -12,7 +12,7 @@ const {
 const { adminAuth } = require("../middlewares/authHandler")
 
 orderRoute.put("/updateOrder/:orderId",adminAuth, updateOrderController )
-orderRoute.put("/updateByTrackingId/:trackingId",adminAuth, updateByTrackingIdController )
+orderRoute.put("/updateByTrackingId/:trackingId", updateByTrackingIdController )
 orderRoute.get("/getOrder/:orderId",adminAuth, getOrderByIdController )
 orderRoute.post("/createOrder", adminAuth,createOrderController )
 orderRoute.get("/getAllOrders",adminAuth, getAllOrdersController )
