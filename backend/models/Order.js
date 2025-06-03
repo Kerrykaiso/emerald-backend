@@ -137,10 +137,7 @@ module.exports = (sequelize, DataTypes) => {
      type: DataTypes.STRING,
      allowNull:true
     },
-    totalFreight:{
-      type: DataTypes.INTEGER,
-      allowNull: true
-    },
+  
    carrier:{
       type: DataTypes.STRING,
       allowNull: true 
