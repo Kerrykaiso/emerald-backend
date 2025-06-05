@@ -70,7 +70,7 @@ const createOrderService = async (orderData,next) => {
   const getOrderByTrackingIdService = async (trackingId,next) => {   
      
     try {
-      const order = await Order.findAll({ where: { trackingId },order: [["createdAt", "DESC"]] })
+      const order = await Order.findAll({ where: { trackingId },})
       if (!order) {
         const err = new AppError("Order not found", "failed", 400)
         throw err
